@@ -1,0 +1,100 @@
+http://dl.porteus.org/x86_64/Porteus-v5.0/ ***Extra-Shit!
+su
+fastest-mirror
+pkginfo
+slackpkg
+pmod
+slapt-mod 
+===========================================
+BECAUSE of BLUETOOTH:= All that SHIT! HAHAHAhahaha
+
+https://anduin.linuxfromscratch.org/sources/linux-firmware/intel
+------------------------------------------------------------------------------------------------------------------------------------------
+https://askubuntu.com/questions/1235757/ubuntu-20-04-rtl8723-bluetooth-not-working
+It should have btrtl, btqca, btintel, hci_uart, bnep, hidp, btbcm, and rfcomm. The last three may be missing, and cause your problem. Load them manually:
+sudo modprobe hidp
+sudo modprobe btbcm
+sudo modprobe rfcomm
+------------------------------------------------------------------------------------------------------------------------------------------
+
+bluetoothctl | bluemoon | hciconfig | modprobe to enable/load a module, so I'd recommend trying sudo modprobe hci_uart
+
+hciconfig - Configure Bluetooth devices            #man
+bluetoothctl: - interactive bluetooth control tool #man
+bluemoon - Bluemoon configuration utility          #man
+
+systool -v -m btusb
+
+modprobe --show-depends btusb || insmod - Simple program to insert a module into the Linux Kernel
+modprobe btusb
+modinfo btusb
+lsmod | grep bt
+depmod -n
+rmmod btusb
+------------------------------------------------------------------------------------------------------------------------------------------
+usb_modeswitch -R -v 0489 -p e0cd = Example about using usb_modeswitch https://forums.gentoo.org/viewtopic-p-8809707.html?sid=4e54a1418e89855afac5c5d428a933f8
+
+usb_modeswitch - control the mode of 'multi-state' USB devices
+usb_modeswitch -v 8087 -p 0aaa
+
+0 hci0 | [hci0]=Human-Computer Interface (HCI) Device:[hci0]bluetooth  
+
+dmesg
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.18.8-porteus xhci-hcd xHCI Host Controller
+idVendor=8087 idProduct=0aaa
+New USB device strings: Mfr=0, Product=0, SerialNumber=0
+--------------------------------------------------------
+lsusb
+ID 8087:0aaa
+--------------
+usb_modeswitch -v 8087 -p 0aaa -W
+DefaultVendor=  0x8087
+DefaultProduct= 0x0aaa
+------------------------------------------------------------------------------------------------------------------------------------------
+https://learn.microsoft.com/en-us/dotnet/api/android.hardware.usb.usbclass?view=net-android-34.0
+
+AppSpec 	254 	Application specific USB class.
+Audio 	1 	USB class for audio devices.
+CdcData 	10 	USB class for CDC devices (communications device class).
+Comm 	2 	USB class for communication devices.
+ContentSec 	13 	USB class for content security devices.
+CscId 	11 	USB class for content smart card devices.
+Hid 	3 	USB class for human interface devices (for example, mice and keyboards).
+Hub 	9 	USB class for USB hubs.
+MassStorage 	8 	USB class for mass storage devices.
+Misc 	239 	USB class for wireless miscellaneous devices.
+PerInterface 	0 	USB class indicating that the class is determined on a per-interface basis.
+Physica 	5 	USB class for physical devices.
+Printer 	7 	USB class for printers.
+StillImage 	6 	USB class for still image devices (digital cameras).
+VendorSpec 	255 	Vendor specific USB class.
+Video 	14 	USB class for video devices.
+WirelessController 	224 	USB class for wireless controller devices.
+------------------------------------------------------------------------------------------------------------------------------------------
+
+/lib/modules/5.18.8-porteus/kernel/drivers/bluetooth/
+
+https://www.tutorialspoint.com/cprogramming/c_header_files.htm
+/usr/include/linux  ##"header file is a file with extension .h which contains C function declarations and macro definitions to be shared between several source files."
+/usr/include/asm/
+
+https://github.com/torvalds/linux/blob/master/include/linux/
+
+Creator: David Parra-Sandoval
+Last Modified: 05/04/2024 ##Me adding this shit in the bottom.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
